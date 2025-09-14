@@ -92,14 +92,30 @@ Replace the placeholder content in these files with your own information:
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### Vercel (Recommended) ⭐
 
-1. **Push your code to GitHub**
-2. **Connect to Vercel**:
-   - Go to [vercel.com](https://vercel.com)
-   - Import your GitHub repository
-   - Vercel will auto-detect Vite settings
-3. **Deploy**: Click "Deploy" - your site will be live in minutes!
+This project is optimized for Vercel deployment with automatic configuration.
+
+#### Method 1: GitHub Integration (Easiest)
+1. **Push to GitHub**: Commit all your changes and push to a GitHub repository
+2. **Import to Vercel**:
+   - Go to [vercel.com](https://vercel.com) and sign up/login
+   - Click "New Project" and import your GitHub repository
+   - Vercel will automatically detect the Vite framework
+   - Click "Deploy" - your site will be live in minutes!
+3. **Custom Domain** (Optional): Add your custom domain in Vercel dashboard
+
+#### Method 2: Vercel CLI
+1. **Install Vercel CLI**: `npm i -g vercel`
+2. **Login**: `vercel login`
+3. **Deploy**: `vercel --prod`
+
+#### Vercel Configuration
+The project includes a `vercel.json` file with:
+- Automatic SPA routing
+- Optimized build settings
+- Security headers
+- Cache optimization
 
 ### Netlify
 
