@@ -9,7 +9,7 @@ const Skills = () => {
         { name: 'JavaScript', level: 85, color: 'bg-yellow-500' },
         { name: 'TypeScript', level: 80, color: 'bg-blue-600' },
         { name: 'Tailwind CSS', level: 88, color: 'bg-cyan-500' },
-        { name: 'Next.js', level: 75, color: 'bg-black' },
+        { name: 'Next.js', level: 75, color: 'bg-blue' },
         { name: 'Vue.js', level: 70, color: 'bg-green-500' }
       ]
     },
@@ -18,7 +18,7 @@ const Skills = () => {
       skills: [
         { name: 'Node.js', level: 85, color: 'bg-green-600' },
         { name: 'Python', level: 80, color: 'bg-yellow-600' },
-        { name: 'MYSQL', level: 82, color: 'bg-gray-600' },
+        { name: 'MYSQL', level: 82, color: 'bg-blue-600' },
         { name: 'PostgreSQL', level: 78, color: 'bg-blue-700' },
         { name: 'MongoDB', level: 75, color: 'bg-green-700' },
         { name: 'Express.js', level: 70, color: 'bg-red-600' }
