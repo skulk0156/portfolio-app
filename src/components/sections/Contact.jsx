@@ -3,6 +3,16 @@ import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
 import Button from '../ui/Button'
 
 const Contact = () => {
+  // Configure your Google Form endpoint and field entry IDs here
+  // Replace FORM_ID and entry IDs with your actual Google Form values
+  const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/u/1/d/1FuODZO4d1y185t6sIDgnDqlf8yC7wqN2holc7taUSNU/formResponse'
+  const GOOGLE_FORM_ENTRIES = {
+    name: 'entry.523608131',
+    email: 'entry.1451435204',
+    subject: 'entry.1144981164',
+    message: 'entry.862732205'
+  }
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,29 +30,30 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio')
-    const body = encodeURIComponent(
-      `Hi John,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\nBest regards,\n${formData.name}`
-    )
-    
-    // Open default email client
-    window.location.href = `mailto:skulk156pc1@gmail.com?subject=${subject}&body=${body}`
-    
-    // Show success message
-    setIsSubmitted(true)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      })
-    }, 3000)
+
+    // Submit to Google Form (no-cors). This succeeds silently if IDs are correct
+    const params = new URLSearchParams()
+    params.append(GOOGLE_FORM_ENTRIES.name, formData.name)
+    params.append(GOOGLE_FORM_ENTRIES.email, formData.email)
+    params.append(GOOGLE_FORM_ENTRIES.subject, formData.subject)
+    params.append(GOOGLE_FORM_ENTRIES.message, formData.message)
+
+    fetch(GOOGLE_FORM_ACTION, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: params.toString()
+    }).catch(() => {
+      // Ignore network errors due to no-cors; form submission is still attempted
+    }).finally(() => {
+      setIsSubmitted(true)
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      }, 3000)
+    })
   }
 
   const contactInfo = [
