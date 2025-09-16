@@ -137,7 +137,7 @@ const Contact = () => {
               <div className="flex flex-wrap gap-4">
                 <Button
                   variant="outline"
-                  onClick={() => window.open('/resume.pdf', '_blank')}
+                  onClick={() => window.open('src\components\sections\Shubham-Kulkarni.pdf', '_blank')}
                 >
                   Download Resume
                 </Button>
